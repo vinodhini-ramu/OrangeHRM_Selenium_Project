@@ -1,8 +1,15 @@
 package pageObjects;
 
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PIMPage extends BasePage 
 {
@@ -11,7 +18,7 @@ public class PIMPage extends BasePage
 	   super(driver);
    }
    
-   @FindBy(xpath="//a[contains(text(),'Add Employee')]")
+   @FindBy(xpath="//nav[@class='oxd-topbar-body-nav']/ul/li[3]/a")
    WebElement lnkaddemployee; 
    
    @FindBy(xpath="//input[@placeholder='First Name']")
@@ -34,6 +41,16 @@ public class PIMPage extends BasePage
    
    @FindBy(xpath="//div[@class='orangehrm-edit-employee-name']/h6")
    WebElement txtempname;
+   
+   @FindBy(xpath="//div[@class='oxd-input-group']//div[1]//span[1]")
+   WebElement msgfnamerequired;
+   
+   @FindBy(xpath=" //div[@class='oxd-layout-container']//div[3]//span[1]")
+   WebElement msglnamerequired;
+   
+   @FindBy(xpath="//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']")
+   WebElement msgerrempId;
+
  
    public void clkaddemployee()
     {
@@ -54,12 +71,16 @@ public class PIMPage extends BasePage
 	{
 		txtlstname.sendKeys(lname);
 	}
-   
+   public void clremployeeid()
+   { 
+	   txtempid.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
+	   
+   }
    public void setemployeeid(String emplyid)
 	{
-		txtempid.clear();
-		txtempid.sendKeys(emplyid);
-	}
+	   txtempid.sendKeys(emplyid);
+
+	}  
   
    public void clicksave()
 	{
@@ -76,7 +97,7 @@ public class PIMPage extends BasePage
 	   try 
 		{
 		return txtempname.isDisplayed();
-	     }
+	    }
 		catch(Exception e)
 		{
 			System.out.println("Employee name not added"+e.getMessage());
@@ -84,11 +105,50 @@ public class PIMPage extends BasePage
 		}
    }
   
+   public boolean fname_Field_msg()
+   {
+	   try 
+		{
+		return msgfnamerequired.isDisplayed();
+	     }
+		catch(Exception e)
+		{
+			e.getMessage();
+			return false;
+		}
+   }
    
-
-
-
- 
- 
-
+   public boolean lname_Field_msg()
+   {
+	   try 
+		{
+		return msglnamerequired.isDisplayed();
+	     }
+		catch(Exception e)
+		{
+			e.getMessage();
+			return false;
+		} 
+   }
+   
+   public boolean ds_empId_err_msg()
+   {
+	   try 
+		{
+		return msgerrempId.isDisplayed();
+	     }
+		catch(Exception e)
+		{
+			e.getMessage();
+			return false;
+		} 
+   }
+   
+   public String empId_err_msg()
+   {
+	   return msgerrempId.getText();
+   }
+   
+   
+   
 }

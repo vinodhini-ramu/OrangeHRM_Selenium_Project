@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath="//a[text()='Logout']")
 	WebElement drpOpt_logout;
 	
-	@FindBy(xpath="//span[text()='PIM']")
+	@FindBy(xpath="//ul[contains(@class,'oxd-main-menu')]/li[2]//a")
 	WebElement lnkPIM;
 	
 	

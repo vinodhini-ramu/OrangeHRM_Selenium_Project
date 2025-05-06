@@ -11,7 +11,7 @@ import utilities.DataProviders;
 public class TC_AddEmp_01 extends BaseClass
 {
 @Test(dataProvider ="EmployeeData", dataProviderClass=DataProviders.class )
-public void testvalid(String fname, String mname, String lname)
+public void validAddEmployee(String fname, String mname, String lname)
 {
 	try {
 	logger.info("****TC_AddEmp_01 Started****");
@@ -25,11 +25,12 @@ public void testvalid(String fname, String mname, String lname)
 	pp.setmiddlename(mname);
 	pp.setlastname(lname);
 	pp.clicksave();
-	logger.info("employee added sucessfully");
-	boolean prsnldetailpg = pp.isempnameDisplayed();
 	
+	boolean prsnldetailpg = pp.isempnameDisplayed();
+
 	if(prsnldetailpg==true)
 	{
+		logger.info("employee added sucessfully");
 		pp.clkaddemployee();
 		Assert.assertTrue(true);
 	}
