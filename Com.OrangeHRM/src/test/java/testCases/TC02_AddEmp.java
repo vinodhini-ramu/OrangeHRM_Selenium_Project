@@ -8,13 +8,13 @@ import pageObjects.PIMPage;
 import testBase.BaseClass;
 import utilities.DataProviders;
 
-public class TC_AddEmp_02 extends BaseClass 
+public class TC02_AddEmp extends BaseClass 
 {
 	@Test(dataProvider ="Employee1Data", dataProviderClass=DataProviders.class )
 	public void invalidAddEmployee(String fname, String mname, String lname)
 	{
 		try {
-		logger.info("****TC_AddEmp_02 Started****");
+		logger.info("****TC02_AddEmp Started****");
 		HomePage hp = new HomePage(driver);
 		hp.clickPIM();
 		PIMPage  pp = new PIMPage(driver);
@@ -48,7 +48,7 @@ public class TC_AddEmp_02 extends BaseClass
 		driver.navigate().refresh();
 
 		
-		logger.info("****TC_AddEmp_02 Completed****");
+		logger.info("****TC02_AddEmp Completed****");
 		}catch(Exception e)
 		{
 			Assert.fail();

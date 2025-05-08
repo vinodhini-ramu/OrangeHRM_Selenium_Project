@@ -8,13 +8,13 @@ import pageObjects.PIMPage;
 import testBase.BaseClass;
 import utilities.DataProviders;
 
-public class TC_AddEmp_01 extends BaseClass
+public class TC01_AddEmp extends BaseClass
 {
 @Test(dataProvider ="EmployeeData", dataProviderClass=DataProviders.class )
 public void validAddEmployee(String fname, String mname, String lname)
 {
 	try {
-	logger.info("****TC_AddEmp_01 Started****");
+	logger.info("****TC01_AddEmp Started****");
 	HomePage hp = new HomePage(driver);
 	hp.clickPIM();
 	PIMPage  pp = new PIMPage(driver);
@@ -38,7 +38,7 @@ public void validAddEmployee(String fname, String mname, String lname)
 	{
 		Assert.assertTrue(false);
 	}
-	logger.info("****TC_AddEmp_01 Completed****");
+	logger.info("****TC01_AddEmp Completed****");
 	}catch(Exception e)
 	{
 		Assert.fail();

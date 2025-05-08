@@ -65,6 +65,26 @@ public String[][] getData2() throws IOException
 		}
 	}
 	return employeedata;
+}
+	@DataProvider(name="Employee3Data")
+	public String[][] getData3() throws IOException
+	{
+		ExcelUtility xlutil = new ExcelUtility(".\\testData\\OrangeHRM AddEmployeeData.xlsx");
+		
+		int totalrows =xlutil.getRowCount("EmpName");
+		int totalcols =xlutil.getCellCount("EmpName", 1);
+		
+		String employeedata[][] = new String[totalrows][totalcols];
+		 
+		for (int r = 1; r <=totalrows; r++) 
+		{
+			for (int c = 0; c <totalcols; c++) 
+			{
+				employeedata[r-1][c] = xlutil.getCellData("EmpName", r, c);
+			}
+		}
+		return employeedata;
+
 
 }
 }
