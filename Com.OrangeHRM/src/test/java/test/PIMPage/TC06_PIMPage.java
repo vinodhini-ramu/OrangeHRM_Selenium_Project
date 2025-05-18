@@ -1,15 +1,14 @@
-package testCases;
+package test.PIMPage;
 
 import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import pageObjects.BasePage;
 import pageObjects.HomePage;
 import pageObjects.PIMPage;
 import testBase.BaseClass;
 
-public class TC06_EmpList extends BaseClass 
+public class TC06_PIMPage extends BaseClass 
 {
 
 	@Test
@@ -18,19 +17,16 @@ public class TC06_EmpList extends BaseClass
 	   try {
 		   logger.info("*** TC06 - Started ***");
 		 HomePage hp = new HomePage(driver);
-         hp.clickPIM();
-
          PIMPage pp = new PIMPage(driver);
+         BasePage.Click(hp.lnkPIM);
         
-         
-	
     List<String> statuses = pp.getAllEmploymentStatuses();
    
     for (String status : statuses) 
     {
         logger.info("Employmentstatus: " + status);
         pp.selectEmploymentStatus(status);
-        pp.clkSearch();
+        BasePage.Click(pp.btnSearch);
 
         Thread.sleep(2000);
         

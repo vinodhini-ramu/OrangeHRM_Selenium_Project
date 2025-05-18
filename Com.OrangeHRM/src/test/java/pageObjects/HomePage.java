@@ -1,5 +1,8 @@
 package pageObjects;
-
+/* 
+*
+*
+**/
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,50 +14,28 @@ public class HomePage extends BasePage {
 	}
 	
 	@FindBy(xpath="//span[@class='oxd-topbar-header-breadcrumb']/h6[1]")
-	WebElement txtDashBoard;
+	public WebElement txtDashBoard;
 	
 	@FindBy(xpath="//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']")
-	WebElement drpIcon;
+	public WebElement drpIcon;
 
 	@FindBy(xpath="//a[text()='Logout']")
-	WebElement drpOpt_logout;
+	public WebElement drpOpt_logout;
 	
 	@FindBy(xpath="//ul[contains(@class,'oxd-main-menu')]/li[2]//a")
-	WebElement lnkPIM;
+	public WebElement lnkPIM;
 	
+	@FindBy(xpath="//ul[contains(@class,'oxd-main-menu')]/li[3]//a")
+	public WebElement lnkLeave;
 	
-	public boolean isDashboardpresent()
-	{
-		try 
-		{
-		return txtDashBoard.isDisplayed();
-	    }
-		catch(Exception e)
-		{
-			System.out.println("Dashboard elen]ment not found"+e.getMessage());
-			return false;
-		}
+	@FindBy(xpath="//ul[contains(@class,'oxd-main-menu')]/li[4]//a")
+	public WebElement lnkTime;
 	
-	}
+	@FindBy(xpath="//ul[contains(@class,'oxd-main-menu')]/li[6]//a")
+	public WebElement lnkMyInfo;
 	
-	public void clickDropdown()
-	{
-		drpIcon.click();
-	}
-	
-	public void clickLogout()
-	{
-		drpOpt_logout.click();
-	}
-	
-   public String chkTitle()
-   {
-	return driver.getTitle(); 
-   }
+	@FindBy(xpath="//ul[contains(@class,'oxd-main-menu')]/li[12]//a")
+	public WebElement lnkBuzz;
    
-	public void clickPIM()
-	{
-		lnkPIM.click();
-	}
-
+	
 }

@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+<listeners>
+<listener class-name="utilities.ExtentReport"/>
+</listeners>
   <test thread-count="5" name="Test">
   <parameter name="browser" value="chrome"></parameter>
   <classes>
- <!-- <class name="testCases.TC01_AddEmp"/> -->
- <!-- <class name="testCases.TC02_AddEmp"/> -->
- <!-- <class name="testCases.TC03_AddEmp"/> --> 
- <!-- <class name="testCases.TC04_EmpList"/>  -->
- <!-- <class name="testCases.TC05_EmpList"/> -->
- <class name="testCases.TC06_EmpList"/>
+<!--  <class name="test.PIMPage.TC01_PIMPage"/> -->
+<!-- <class name="test.PIMPage.TC02_PIMPage"/> -->
+<!--<class name="test.PIMPage.TC03_PIMPage"/>  -->
+<!-- <class name="test.PIMPage.TC05_PIMPage"/> --> 
+<!-- <class name="test.PIMPage.TC05_PIMPage"/> -->
+<!-- <class name="test.PIMPage.TC06_PIMPage"/>-->
+<!-- <class name="test.PIMPage.TC07_PIMPage"/> -->
+<!--<class name="test.TimePage.TC01_TimePage"/> -->
+<!-- <class name="test.TimePage.TC02_TimePage"/> -->
+<!-- <class name="test.TimePage.TC03_TimePage"/>-->
+<!-- <class name="test.TimePage.TC04_TimePage"/>--> 
+<!--  <class name="test.TimePage.TC05_TimePage"/> -->
+<!-- <class name="test.LeavePage.TC01_LeavePage"/>-->
+<!--<class name="test.LeavePage.TC02_LeavePage"/>-->
+<!--<class name="test.LeavePage.TC03_LeavePage"/>-->
+<!-- <class name="test.LeavePage.TC04_leavePage"/>-->
+<!--<class name="test.LeavePage.TC05_LeavePage"/>-->
+<!--<class name="test.BuzzPage.TC01_BuzzPage"/>-->
+<!--<class name="test.BuzzPage.TC02_BuzzPage"/>-->
+<!--<class name="test.BuzzPage.TC03_BuzzPage"/>-->
+<!--<class name="test.BuzzPage.TC04_BuzzPage"/>-->
+<!--<class name="test.BuzzPage.TC05_BuzzPage"/> -->
+<!--<class name="test.MyInfoPage.TC01_MyInfoPage"/> -->
+<!--<class name="test.MyInfoPage.TC02_MyInfoPage"/> -->
+<!--<class name="test.MyInfoPage.TC03_MyInfoPage"/>  -->
+<!--<class name="test.MyInfoPage.TC04_MyInfoPage"/> -->
+<class name="test.MyInfoPage.TC01_MyInfoPage"/> 
+
   </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

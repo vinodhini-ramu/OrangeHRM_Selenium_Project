@@ -84,6 +84,66 @@ public String[][] getData2() throws IOException
 			}
 		}
 		return employeedata;
+	}		
+		@DataProvider(name="Employee4Data")
+		public String[][] getData4() throws IOException
+		{
+			ExcelUtility xlutil = new ExcelUtility(".\\testData\\OrangeHRM AddEmployeeData.xlsx");
+			
+			int totalrows =xlutil.getRowCount("MyInfo");
+			int totalcols =xlutil.getCellCount("MyInfo", 1);
+			
+			String employeedata[][] = new String[totalrows][totalcols];
+			 
+			for (int r = 1; r <=totalrows; r++) 
+			{
+				for (int c = 0; c <totalcols; c++) 
+				{
+					employeedata[r-1][c] = xlutil.getCellData("MyInfo", r, c);
+				}
+			}
+			return employeedata;
+}
+		
+		@DataProvider(name="Employee5Data")
+		public String[][] getData5() throws IOException
+		{
+			ExcelUtility xlutil = new ExcelUtility(".\\testData\\OrangeHRM AddEmployeeData.xlsx");
+			
+			int totalrows =xlutil.getRowCount("Emgncy Con");
+			int totalcols =xlutil.getCellCount("Emgncy Con", 1);
+			
+			String employeedata[][] = new String[totalrows][totalcols];
+			 
+			for (int r = 1; r <=totalrows; r++) 
+			{
+				for (int c = 0; c <totalcols; c++) 
+				{
+					employeedata[r-1][c] = xlutil.getCellData("Emgncy Con", r, c);
+				}
+			}
+			return employeedata;
+}
+		
+		@DataProvider(name="Employee6Data")
+		public String[][] getData6() throws IOException
+		{
+			ExcelUtility xlutil = new ExcelUtility(".\\testData\\OrangeHRM AddEmployeeData.xlsx");
+			
+			int totalrows =xlutil.getRowCount("Invalid Emgncy");
+			int totalcols =xlutil.getCellCount("Invalid Emgncy", 1);
+			
+			String employeedata[][] = new String[totalrows][totalcols];
+			 
+			for (int r = 1; r <=totalrows; r++) 
+			{
+				for (int c = 0; c <totalcols; c++) 
+				{
+					employeedata[r-1][c] = xlutil.getCellData("Invalid Emgncy", r, c);
+				}
+			}
+			return employeedata;
+
 
 
 }

@@ -1,18 +1,14 @@
-package testCases;
+package test.PIMPage;
 
-import java.time.Duration;
-
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import pageObjects.BasePage;
 import pageObjects.HomePage;
 import pageObjects.PIMPage;
 import testBase.BaseClass;
 import utilities.DataProviders;
 
-public class TC05_EmpList extends BaseClass {
+public class TC05_PIMPage extends BaseClass {
 
     @Test(dataProvider ="Employee3Data", dataProviderClass=DataProviders.class)
     public void searchByInvalidEmpname(String empname) {
@@ -20,16 +16,17 @@ public class TC05_EmpList extends BaseClass {
             logger.info("*****TC05_EmpList Started*****");
 
             HomePage hp = new HomePage(driver);
-            hp.clickPIM();
-
             PIMPage pp = new PIMPage(driver);
-            pp.search_Emp_name(empname);
-            pp.clkSearch();
+            BasePage.Click(hp.lnkPIM);
+            
+            BasePage.InputText(pp.txtSearchEmpname, empname);
+            BasePage.Click(pp.btnSearch);
             
             Thread.sleep(2000);
-     	     
-            if (pp.emp_record_msg()==true) {
-                logger.info("Employee name status: " + pp.getrecordsts());
+            boolean emp_record_msg = BasePage.ElementDisplayStatus(pp.msgrecordsts);
+            if (emp_record_msg==true) 
+            {
+                logger.info("Employee name status:"+ BasePage.CaptureMsg(pp.msgrecordsts));
                 Assert.assertTrue(true, "Record not found as expected.");
             } else {
                 logger.error("Expected 'No Records Found' but got something else.");
@@ -38,9 +35,11 @@ public class TC05_EmpList extends BaseClass {
 
             logger.info("*****TC05_EmpList completed*****");
 
-        } catch (Exception e) {
-            logger.error("Exception occurred: ", e);
-            Assert.fail("Test failed due to exception: " + e.getMessage());
+        } 
+        catch (Exception e) 
+        {
+            logger.error(e.getMessage());
+            Assert.fail();
         }
     }
 }
